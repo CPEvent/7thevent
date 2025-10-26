@@ -2,7 +2,7 @@
 <html lang="ko">
 <head>
   <meta charset="UTF-8" />
-  <title>7차 컴플라이언스 이벤트_'슬기로운 근로생활' 가로세로 퍼즐 (Poor Story)</title>
+  <title>슬기로운 근로생활 가로세로 퍼즐 (Poor Story)</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <!-- ✏️ Poor Story 폰트 -->
@@ -47,7 +47,7 @@
     /* 오른쪽 패널을 퍼즐 높이에 맞춰 정렬 */
     .side {
       position: sticky;
-      top: 200px; /* ✅ 퍼즐 중앙 정도로 살짝 내려감 */
+      top: 100px; /* ✅ 퍼즐 중앙 정도로 살짝 내려감 */
       align-self: start;
     }
 
@@ -108,27 +108,21 @@
 
     /* 버튼 */
     .topbar {
-      topbar {
-  display: flex;
-  justify-content: center;
-  gap: 20px;            /* 버튼 사이 간격 */
-  margin: 16px 0 26px;  /* 위아래 여백 */
-}
+      display: flex;
+      gap: 10px;
+      margin: 8px 0 16px;
+      justify-content: center;
+    }
 
-button {
-  padding: 10px 18px;
-  border: none;
-  border-radius: 10px;
-  cursor: pointer;
-  color: #fff;
-  font-family: 'Poor Story', sans-serif;
-  background: #27ae60;
-  box-shadow: 0 2px 6px rgba(0,0,0,.3);
-}
-
-.ghost {
-  background: #95a5a6;
-}
+    button {
+      padding: 8px 16px;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      color: #fff;
+      background: #27ae60;
+      box-shadow: 0 2px 6px rgba(0,0,0,.3);
+    }
 
     .ghost {
       background: #95a5a6;
@@ -178,7 +172,7 @@ button {
 </head>
 <body>
   <h1>✏️ 슬기로운 근로생활 가로세로 퍼즐</h1>
-  <div class="subtitle">오른쪽의 풀이를 보고 왼쪽의 퍼즐을 풀어 보세요!</div>
+  <div class="subtitle">왼쪽에서 퍼즐을 풀고, 오른쪽에서 힌트를 확인하세요!</div>
 
   <div class="layout">
     <!-- 퍼즐 -->
@@ -210,7 +204,7 @@ button {
       { num:1, dir:'across', row:4, col:2, text:'직장내괴롭힘', clue:'💼 직장 내 폭언·모욕·따돌림 등 괴롭힘' },
       { num:2, dir:'across', row:6, col:4, text:'희망회로', clue:'🌈 현실을 낙관적으로 해석하는 심리' },
       { num:3, dir:'across', row:9, col:7, text:'스트레스', clue:'😵‍💫 신체·정신에 누적되는 긴장' },
-      { num:4, dir:'across', row:7, col:9, text:'근로기준법', clue:'📚 이번 '고용노동'주제의 기준이 되는 법이죠? Hint. 이벤트 게시문을 참고하세요!' },
+      { num:4, dir:'across', row:7, col:9, text:'근로기준법', clue:'📚 근로조건의 최소 기준 법' },
       { num:5, dir:'across', row:11, col:9, text:'콘택트렌즈', clue:'👀 시력 보정용 얇은 렌즈' },
       { num:1, dir:'down', row:2, col:4, text:'직장내성희롱', clue:'🚫 직장 내 성적 언행으로 인한 굴욕감' },
       { num:2, dir:'down', row:6, col:7, text:'로보틱스', clue:'🤖 로봇 관련 공학 분야' },
@@ -290,4 +284,3 @@ button {
   </script>
 </body>
 </html>
-
