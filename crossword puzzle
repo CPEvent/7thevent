@@ -2,10 +2,10 @@
 <html lang="ko">
 <head>
   <meta charset="UTF-8" />
-  <title>슬기로운 근로생활 가로세로 퍼즐 (Poor Story)</title>
+  <title>슬기로운 근로생활 가로세로 퍼즐 (칠판 버전)</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <!-- ✏️ Poor Story 폰트 -->
+  <!-- Poor Story 폰트 -->
   <link href="https://fonts.googleapis.com/css2?family=Poor+Story&display=swap" rel="stylesheet">
 
   <style>
@@ -44,26 +44,22 @@
       margin: 14px auto 0;
     }
 
-    /* 오른쪽 패널을 퍼즐 높이에 맞춰 정렬 */
     .side {
       position: sticky;
-      top: 200px; /* ✅ 퍼즐 중앙 정도로 살짝 내려감 */
+      top: 200px;
       align-self: start;
     }
 
     /* 🧩 퍼즐 */
-    #boardHolder {
-      display: flex;
-      justify-content: center;
-    }
-
-    table {
+    #boardHolder { display: flex; justify-content: center; }
+    #boardHolder table {
       border-collapse: collapse;
       margin: 8px auto 18px;
       box-shadow: 0 0 12px rgba(255,255,255,.1);
     }
 
-    td {
+    /* ✅ 퍼즐 칸 (GitHub CSS 충돌 방지) */
+    #boardHolder table td {
       width: 44px;
       height: 44px;
       position: relative;
@@ -74,9 +70,12 @@
       background: rgba(255,255,255,.06);
     }
 
-    td.blank {
-      border: none;
-      background: transparent;
+    /* ✅ 빈칸: 완전 투명 처리 */
+    #boardHolder table td.blank {
+      border: none !important;
+      background: transparent !important;
+      box-shadow: none !important;
+      background-color: transparent !important;
     }
 
     .num {
@@ -87,7 +86,8 @@
       color: var(--chalk-ink-soft);
     }
 
-    input {
+    /* ✅ 입력 글씨: 항상 흰색 */
+    #boardHolder input {
       width: 100%;
       height: 100%;
       border: none;
@@ -96,15 +96,9 @@
       text-align: center;
       font-family: 'Poor Story', sans-serif;
       font-size: 22px;
-      color: #fff;
+      color: #ffffff;
       letter-spacing: .02em;
     }
-
-    /* 🎨 분필색 다양화 */
-    input[data-color="1"] { color: #fefee0 }
-    input[data-color="2"] { color: #b0e0ff }
-    input[data-color="3"] { color: #ffb6c1 }
-    input[data-color="4"] { color: #a7f0ba }
 
     /* 버튼 */
     .topbar {
@@ -113,7 +107,6 @@
       margin: 8px 0 16px;
       justify-content: center;
     }
-
     button {
       padding: 8px 16px;
       border: none;
@@ -123,10 +116,7 @@
       background: #27ae60;
       box-shadow: 0 2px 6px rgba(0,0,0,.3);
     }
-
-    .ghost {
-      background: #95a5a6;
-    }
+    .ghost { background: #95a5a6; }
 
     .correct { background: rgba(160,255,160,.42)!important; }
     .incorrect { background: rgba(255,120,120,.42)!important; }
@@ -156,17 +146,11 @@
       line-height: 1.55;
     }
 
-    .emoji {
-      margin-right: 6px;
-    }
+    .emoji { margin-right: 6px; }
 
     @media (max-width: 980px) {
-      .layout {
-        grid-template-columns: 1fr;
-      }
-      .side {
-        position: static;
-      }
+      .layout { grid-template-columns: 1fr; }
+      .side { position: static; }
     }
   </style>
 </head>
@@ -199,7 +183,6 @@
   </div>
 
   <script>
-    /* 기존 로직 그대로 유지 */
     const entries = [
       { num:1, dir:'across', row:4, col:2, text:'직장내괴롭힘', clue:'💼 직장 내 폭언·모욕·따돌림 등 괴롭힘' },
       { num:2, dir:'across', row:6, col:4, text:'희망회로', clue:'🌈 현실을 낙관적으로 해석하는 심리' },
@@ -237,7 +220,6 @@
             const n=document.createElement('div'); n.className='num'; n.textContent=info.number; td.appendChild(n);
           }
           const inp=document.createElement('input'); inp.maxLength=1; inp.dataset.answer=info.ch;
-          inp.setAttribute('data-color', String(1+Math.floor(Math.random()*4)));
           td.appendChild(inp);
         } else td.className='blank';
         tr.appendChild(td);
